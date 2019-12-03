@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% include 'navbar.html' %}
+    <h1>Welcome to Registration Page</h1>
+    <br>
+    <form action="{% url 'register' %}" method="post">
+    {% csrf_token %}
+    <table align="center" width="40%">
+     {{ regform }}
+    </table>
+        <br>
+        <div>
+            <input type="submit" value="Register">
+        </div>
+
+    </form>
+{% endblock %}

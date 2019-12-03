@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>contestents_page</title>
+    <link rel="stylesheet" type="text/css" href="{% static  'css/home.css'%}">
+</head>
+<body>
+    {% include 'navbar.html' %}
+    <br>
+    <h1>Contestents Profile</h1>
+<table width="100%">
+    <tr>
+        <th>contestent image</th>
+        <th>contestent name</th>
+        <th>Occupation</th>
+        <th>contestent age</th>
+        <th>Born</th>
+        <th>origin</th>
+        <th>gender</th>
+        <th>Edit profile</th>
+    </tr>
+
+    {% for i in contestent %}
+    <tr>
+        {% if i.image %}
+        <td><img src="{{ i.image.url }}" alt="sai" width="200px" height="100px"></td>
+        {% endif %}
+        <td><a href="{% url 'vote' i.id %}">{{ i.contestent_name }}</a></td>
+        <td>{{ i.ocuupation }}</td>
+        <td>{{ i.age }}</td>
+        <td>{{ i.born }}</td>
+        <td>{{ i.origin }}</td>
+        <td>{{ i.gender }}</td>
+        <td><a href="{% url 'update' i.id %}" title="click here to update">update</a>
+            <br><br>
+            <a href="{% url 'delete' i.id %}"title="click here to delete">delete</a></td>
+    </tr>
+          {% endfor %}
+    </table>
+
+</body>
+</html>
+
+

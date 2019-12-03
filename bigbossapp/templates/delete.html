@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}delete_page{% endblock %}
+{% block content %}
+    {% include 'navbar.html' %}
+    <form action="" method="post">
+     {% csrf_token %}
+    <h1>You can delete Here</h1><br>
+    <h1>Are you SUre want to delete {{ a.contestent_name }}</h1>
+        <div>
+            <button type="submit">click here</button>
+        </div>
+
+    </form>
+{% endblock %}

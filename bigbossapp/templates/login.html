@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% include 'navbar.html' %}
+    {% if form %}
+    <form action="{% url 'login' %}" method="post">
+    {% csrf_token %}
+        <h1>Welcome to Login Page</h1>
+        <br><br>
+        <table align="center" width="30%">
+            {{ form}}
+        </table>
+        <br>
+        <div>
+            <input type="submit" value="Login">
+        </div>
+    </form>
+    {% endif %}
+    {% if forms %}
+        {% if dbuser %}
+            <h1>login success!!!</h1>
+            <div>
+            <br><br>
+            <a href="{% url 'insert' %}" title="click here to add a contestent">Add Contestents</a><br><br>
+            <a href="{% url 'display' %}" title="click here to see the contestents">View Contestents</a>
+             </div>
+        {% else %}
+            <h1>Invalid Credentials!!!</h1>
+        {% endif %}
+    {% endif %}
+{% endblock %}
+

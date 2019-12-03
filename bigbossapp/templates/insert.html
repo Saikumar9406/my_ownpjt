@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}addpage{% endblock %}
+{% block content %}
+    <form action="{% url 'insert' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+        {% include 'navbar.html' %}
+        <br>
+        <h1>Add your Favorite Contestent</h1>
+        <br>
+        <table align="center">
+        {{ addform }}
+        </table><br>
+        <div><input type="submit" value="Insert"></div>
+    </form>
+
+{% endblock %}
